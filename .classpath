@@ -2,9 +2,9 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
-	<classpathentry kind="lib" path="D:/Dokumenter/Jars/ctk/aelfred.jar"/>
-	<classpathentry kind="lib" path="D:/Dokumenter/Jars/ctk/ntp.jar"/>
-	<classpathentry kind="lib" path="D:/Dokumenter/Jars/ctk/Ntp.zip"/>
-	<classpathentry kind="lib" path="D:/Dokumenter/Jars/ctk/sax.jar"/>
+	<classpathentry kind="lib" path="C:/Programmering/ctk/ctk/lib/aelfred.jar"/>
+	<classpathentry kind="lib" path="C:/Programmering/ctk/ctk/lib/ntp.jar"/>
+	<classpathentry kind="lib" path="C:/Programmering/ctk/ctk/lib/Ntp.zip"/>
+	<classpathentry kind="lib" path="C:/Programmering/ctk/ctk/lib/sax.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
