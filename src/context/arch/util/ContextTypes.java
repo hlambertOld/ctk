@@ -152,6 +152,8 @@ public class ContextTypes {
    */
   public static final String TEMPERATURE = "temperature";
 
+  
+  public static final String MOTION = "motion";
   /**
    * Tag for units
    */

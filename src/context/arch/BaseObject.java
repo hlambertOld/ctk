@@ -1962,7 +1962,7 @@ public class BaseObject implements MessageHandler, CommunicationsHandler {
    * @author Agathe
    */
   public Error findDiscoverer(boolean registration, Lease registrationLease, boolean automaticRenewal) {
-      System.out.println("PIKPIK");
+      System.out.println("findDiscoverer------------------");
     debugprintln(DEBUG, "BO <findDiscoverer>");
     discoverer = new DiscovererDescription();
     debugprintln(DEBUG, discoverer);
@@ -1971,14 +1971,14 @@ public class BaseObject implements MessageHandler, CommunicationsHandler {
       debugprintln(DEBUG, "in loop");
       DataObject callerId, type, hostname, port;
       Error error = new Error();
-      System.out.println("PENIS1--PENIS1--PENIS1--PENIS1--PENIS1--PENIS1--PENIS1--PENIS1--PENIS1--PENIS1");
+      System.out.println("--------------------------------");
       callerId = new DataObject(Discoverer.CALLER_ID, getId());
       System.out.println(getId());
       hostname = new DataObject(Discoverer.HOSTNAME, getHostAddress());
       System.out.println(getHostAddress());
       port = new DataObject(Discoverer.PORT, new Integer(communications.getServerPort()).toString());
       System.out.println(communications.getServerPort());
-      System.out.println("PENIS1--PENIS1--PENIS1--PENIS1--PENIS1--PENIS1--PENIS1--PENIS1--PENIS1--PENIS1");
+      System.out.println("---------------------");
       
       Vector v = new Vector();
       v.addElement(callerId);
