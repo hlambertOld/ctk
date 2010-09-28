@@ -1658,12 +1658,15 @@ public class BaseObject implements MessageHandler, CommunicationsHandler {
     if (host != null) {
       return host;
     }
-    
+
     try {
-        Socket socket = new Socket("www.google.com", 80);
-        host = socket.getLocalAddress().toString().substring(1);
+        host = InetAddress.getLocalHost().getHostAddress();
+        if(host == null){
+            Socket socket = new Socket("www.google.com", 80);
+            host = socket.getLocalAddress().toString().substring(1);
+        }
     } catch (UnknownHostException uhe) {
-      System.out.println("BaseObject UnknownHost: "+uhe);
+        System.out.println("BaseObject UnknownHost: "+uhe);
     } catch (IOException e) {
         // TODO Auto-generated catch block
         e.printStackTrace();
