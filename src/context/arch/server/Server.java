@@ -520,6 +520,7 @@ public abstract class Server extends Widget implements Handler {
    * @return DataObject containing the reply to the query
    */
   protected DataObject queryWidget(DataObject query, boolean update, String error) {
+      System.out.println(query);
     DataObject result = null;
     Vector v = new Vector();
     if (update) {

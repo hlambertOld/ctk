@@ -1102,6 +1102,7 @@ public class BaseObject implements MessageHandler, CommunicationsHandler {
     DataObject interpret = new DataObject(Constants.INTERPRET, v);
     v.addElement(new DataObject(ID, remoteId));
     v.addElement(data.toDataObject());
+    System.out.println(data.toDataObject());
     try {
       return userRequest(new RequestObject(interpret, Constants.INTERPRET, remoteHost, remotePort));
     } catch (DecodeException de) {
@@ -1356,6 +1357,16 @@ public class BaseObject implements MessageHandler, CommunicationsHandler {
    * @see #setDiscoverer(context.arch.comm.DataObject)
    */
   public DataObject runMethod(String methodType, DataObject data) throws InvalidMethodException, MethodException {
+      System.out.println("================================= PIK ===================================");
+      System.out.println(data);
+      System.out.println("================================= ANUS ===================================");
+      if(data.getDataObject(ID) != null && data.getDataObject(ID).getValue() != null){
+          System.out.println(data.getDataObject(ID).getValue().firstElement());
+      }
+      System.out.println("================================= KUSSE ===================================");
+      System.out.println(methodType);
+      System.out.println(data.getName());
+      System.out.println("================================= PAT ===================================");
     debugprintln(DEBUG, "\nBaseObject runMethod " + methodType);
     if (methodType.equals(AbstractSubscriber.SUBSCRIPTION_CALLBACK)) {
       return userCallback(data);
@@ -1661,10 +1672,11 @@ public class BaseObject implements MessageHandler, CommunicationsHandler {
 
     try {
         host = InetAddress.getLocalHost().getHostAddress();
-        if(host == null){
+        if(host == null || host.equals("127.0.0.1")){
             Socket socket = new Socket("www.google.com", 80);
             host = socket.getLocalAddress().toString().substring(1);
         }
+        System.out.println(host);
     } catch (UnknownHostException uhe) {
         System.out.println("BaseObject UnknownHost: "+uhe);
     } catch (IOException e) {
@@ -1987,6 +1999,7 @@ public class BaseObject implements MessageHandler, CommunicationsHandler {
       v.addElement(callerId);
       v.addElement(hostname);
       v.addElement(port);
+      System.out.println(v);
       
       DataObject caller = new DataObject(Discoverer.CALLER, v);
       Vector vCaller = new Vector();

@@ -27,7 +27,7 @@ public class Lease {
    * specify a lease.
    * 72 corresponds to 12 hours lease
    */
-  public static final int DEFAULT_DURATION = 1;//3;//72;
+  public static final int DEFAULT_DURATION = 1000;//3;//72;
   
   /**
    * This constant defines the smallest time slot. A lease is defined as a 

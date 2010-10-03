@@ -260,6 +260,10 @@ public class HTTPClientSocket extends TCPClientSocket implements CommunicationsC
     
     Socket s = null;
     try {
+        // TODO Create table in BaseObject to make this mapping
+        if(remoteServer.equals("LT001")){
+            remoteServer = "192.168.1.11";
+        }
       s = new Socket(remoteServer, portNumber);
     }
     catch (IOException ioe){
