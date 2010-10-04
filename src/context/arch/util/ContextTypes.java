@@ -15,6 +15,8 @@ public class ContextTypes {
    * Tag for username
    */
   public static final String USERNAME = "username";
+  
+  public static final String ROOM = "room";
 
   /**
    * Tag for group

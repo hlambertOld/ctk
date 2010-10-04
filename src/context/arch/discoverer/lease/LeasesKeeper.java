@@ -46,7 +46,21 @@ public class LeasesKeeper {
    * The watcher that triggers the leases examination
    */
   protected LeasesWatcher watcher;
-
+  
+  /** 
+   * Creates new LeasesKeeper
+   *
+   * TO COMPLETE (if the discoverer restarts from a log file)
+   *
+   * @param discoverer The Discoverer object
+   */
+  public LeasesKeeper (DiscovererMediator mediator) {
+    if (mediator != null){
+      this.mediator = mediator;
+    }
+    watcher = new LeasesWatcher(this);
+    leases = new Hashtable();
+  }
   
   /**
    * Adds a Lease object and update the LeaseWatcher object

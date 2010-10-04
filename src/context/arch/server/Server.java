@@ -265,8 +265,9 @@ public abstract class Server extends Widget implements Handler {
     Attributes atts = new Attributes();
     for (int i = 0; i < widgets.size (); i++) {
       WidgetHandle handle = widgets.getWidgetHandleAt (i);
-
+      System.out.println(handle);
       DataObject widgetAtts = getWidgetAttributes(handle.getHostName(), handle.getPort(), handle.getId());
+
       String error = new Error(widgetAtts).getError();
       if (error != null) {
         if (error.equals(Error.NO_ERROR)) {
@@ -498,8 +499,9 @@ public abstract class Server extends Widget implements Handler {
     if (callbacks.hasCallback(callback)) {
       Attributes attsObj = new Attributes(data);
       if (attsObj != null) {
-        sendToSubscribers(callback);
-        storeAttributeNameValues(attsObj);
+          setNonConstantAttributes(attsObj);
+          sendToSubscribers(callback);
+          storeAttributeNameValues(attsObj);
       }
     }
     else {

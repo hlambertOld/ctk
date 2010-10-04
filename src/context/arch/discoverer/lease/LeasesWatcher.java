@@ -8,7 +8,9 @@ package context.arch.discoverer.lease;
 
 import context.arch.discoverer.Discoverer;
 
+import java.util.Date;
 import java.util.Timer;
+import java.util.TimerTask;
 import java.util.Vector;
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -43,7 +45,35 @@ public class LeasesWatcher {
    */
   protected Vector leases;
   
+  /**
+   * Creates new LeasesWatcher
+   *
+   * @param discoverer The discoverer object
+   */
+  public LeasesWatcher(LeasesKeeper leasesKeeper) {
+    keeper = leasesKeeper;
+    
+    int delay = 2 * (int) Lease.TIME_SLOT_MILLIS;
+    // Creates a new xx minutes Timer
+    timer = new Timer();
+    timer.schedule(new TimerTask() {
+        
+        @Override
+        public void run() {
+            watchLeases();
+            
+        }
+    }, new Date(), delay);
+
+    System.out.println("LeasesWatcher <init> The timer ("+ delay +")has started... at " + Calendar.getInstance().getTime());
+  }
   
+  /**
+   * Stops the timer when this object is destroyed
+   */
+  protected void finalize(){
+    timer.cancel();
+  }
   
   
   /**

@@ -103,6 +103,7 @@ public class DiscovererMediator {
     dataModel = new DiscovererDataModel();
     this.discoverer = discoverer;
     mh = (MessageHandler) discoverer;
+    leasesKeeper = new LeasesKeeper(this);
     useLogFile = keepLogFile;
     filename = this.discoverer.getId () + "-database.log";
     

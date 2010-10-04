@@ -1357,16 +1357,9 @@ public class BaseObject implements MessageHandler, CommunicationsHandler {
    * @see #setDiscoverer(context.arch.comm.DataObject)
    */
   public DataObject runMethod(String methodType, DataObject data) throws InvalidMethodException, MethodException {
-      System.out.println("================================= PIK ===================================");
-      System.out.println(data);
-      System.out.println("================================= ANUS ===================================");
       if(data.getDataObject(ID) != null && data.getDataObject(ID).getValue() != null){
           System.out.println(data.getDataObject(ID).getValue().firstElement());
       }
-      System.out.println("================================= KUSSE ===================================");
-      System.out.println(methodType);
-      System.out.println(data.getName());
-      System.out.println("================================= PAT ===================================");
     debugprintln(DEBUG, "\nBaseObject runMethod " + methodType);
     if (methodType.equals(AbstractSubscriber.SUBSCRIPTION_CALLBACK)) {
       return userCallback(data);
@@ -1977,7 +1970,6 @@ public class BaseObject implements MessageHandler, CommunicationsHandler {
    * @author Agathe
    */
   public Error findDiscoverer(boolean registration, Lease registrationLease, boolean automaticRenewal) {
-      System.out.println("findDiscoverer------------------");
     debugprintln(DEBUG, "BO <findDiscoverer>");
     discoverer = new DiscovererDescription();
     debugprintln(DEBUG, discoverer);
@@ -1986,20 +1978,14 @@ public class BaseObject implements MessageHandler, CommunicationsHandler {
       debugprintln(DEBUG, "in loop");
       DataObject callerId, type, hostname, port;
       Error error = new Error();
-      System.out.println("--------------------------------");
       callerId = new DataObject(Discoverer.CALLER_ID, getId());
-      System.out.println(getId());
       hostname = new DataObject(Discoverer.HOSTNAME, getHostAddress());
-      System.out.println(getHostAddress());
       port = new DataObject(Discoverer.PORT, new Integer(communications.getServerPort()).toString());
-      System.out.println(communications.getServerPort());
-      System.out.println("---------------------");
       
       Vector v = new Vector();
       v.addElement(callerId);
       v.addElement(hostname);
       v.addElement(port);
-      System.out.println(v);
       
       DataObject caller = new DataObject(Discoverer.CALLER, v);
       Vector vCaller = new Vector();
@@ -2492,7 +2478,7 @@ public class BaseObject implements MessageHandler, CommunicationsHandler {
   }
   
   public void println(String s){
-      System.out.println(s);
+//      System.out.println(s);
   }
   
 }

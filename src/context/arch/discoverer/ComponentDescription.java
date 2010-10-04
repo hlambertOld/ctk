@@ -661,7 +661,7 @@ public class ComponentDescription extends Object implements Cloneable {
         while (list.hasMoreElements()){
           value = (DataObject) list.nextElement();
           if (! value.getValue().isEmpty()){
-            setServerService((String) value.getValue().firstElement());
+            setServerService((String) value.getValue().firstElement().toString());
           }
         }  
       }
@@ -787,7 +787,7 @@ public class ComponentDescription extends Object implements Cloneable {
         while (list.hasMoreElements()){
           value = (DataObject) list.nextElement();
           if (! value.getValue().isEmpty()) {
-            setServerCallback((String) value.getValue().firstElement());
+            setServerCallback((String) value.getValue().firstElement().toString());
           }
         }  
       }

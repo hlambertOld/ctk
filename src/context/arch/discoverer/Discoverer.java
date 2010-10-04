@@ -805,7 +805,7 @@ public class Discoverer extends Widget {
       else {
         ComponentDescription comp = 
           ComponentDescription.dataObjectToComponentDescription(data.getDataObject (Discoverer.REGISTERER));
-        println("comp to data object " + comp.toDataObject ());
+//        println("comp to data object " + comp.toDataObject ());
         Lease lease = Lease.dataObjectToLease(data.getDataObject (Lease.LEASE));
         error.setError (mediator.add (comp, lease).getError ()); // Add to the database
         checkSubscribers(new Callback(Discoverer.NEW_COMPONENT, null), comp);

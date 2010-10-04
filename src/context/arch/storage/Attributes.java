@@ -48,7 +48,11 @@ public class Attributes extends Vector {
    */
   public Attributes(DataObject data) {
     super();
+    DataObject temp = data.getDataObject("NCANVS");
     DataObject atts = data.getDataObject(ATTRIBUTES);
+    if(temp != null){
+        atts = temp.getDataObject(ATTRIBUTES);
+    }
     if (atts == null) {
       return;
     }
@@ -137,7 +141,7 @@ public class Attributes extends Vector {
   protected synchronized void replaceOrAdd(Attribute att) {
     for (int i=0, n=size(); i < n; i++) {
       Attribute a = getAttributeAt(i);
-      if (a.getName() == att.getName()) {
+      if (a.getName().equals(att.getName())) {
         remove(i);
         break;
       } 
@@ -151,9 +155,11 @@ public class Attributes extends Vector {
    * @param atts Attributes to add
    */
   public void addAttributes(Attributes atts) {
-    for (int i=0; i<atts.numAttributes(); i++) {
-      replaceOrAdd(atts.getAttributeAt(i));
-    }
+      if(atts != null){
+          for (int i=0; i<atts.numAttributes(); i++) {
+              replaceOrAdd(atts.getAttributeAt(i));
+          }
+      }
   }
 
   /**
